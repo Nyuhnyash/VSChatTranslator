@@ -1,0 +1,15 @@
+{
+	"type": "code",
+	"name": "Chat Translator",
+	"modid": "chattranslator",
+	"version": "1.0.0",
+	"side": "client",
+	
+	"description" : "Translate incoming chat messages into your language and reply in chat participants' language. Commands: .ct .t",
+	"website": "https://github.com/Nyuhnyash/VSChatTranslator",
+	"authors": [ "Nyuhnyash" ],
+	
+	"dependencies": {
+		"game": "1.18.0"
+	}
+}

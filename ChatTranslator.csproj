@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <LangVersion>8</LangVersion>
+        <RootNamespace>ChatTranslator</RootNamespace>
+        <Version>1.0.0</Version>
+    </PropertyGroup>
+    
+    <ItemGroup>
+        <Reference Include="VintagestoryAPI">
+            <HintPath>$(VINTAGE_STORY)/VintagestoryAPI.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+        <Reference Include="Newtonsoft.Json">
+            <HintPath>$(VINTAGE_STORY)/Lib/Newtonsoft.Json.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+        <Reference Include="GoogleTranslateFreeApi">
+            <HintPath>GoogleTranslateFreeApi.dll</HintPath>
+        </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="modinfo.json" CopyToOutputDirectory="PreserveNewest"/>
+    </ItemGroup>
+
+    <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+        <DebugType>None</DebugType>
+        <GenerateDependencyFile>false</GenerateDependencyFile>
+    </PropertyGroup>
+
+    <Target Name="Zip" AfterTargets="Build" Condition="'$(Configuration)' == 'Release'">
+        <ZipDirectory DestinationFile="bin\$(Configuration)\$(AssemblyName)_v$(Version).zip" SourceDirectory="$(OutDir)" Overwrite="true" />
+    </Target>
+
+</Project>
