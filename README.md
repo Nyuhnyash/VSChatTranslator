@@ -4,7 +4,7 @@ and reply in chat participants' language.
 
 ## Build
 - Set `VINTAGE_STORY` environment variable to your game directory.
-- Download [dependency](https://github.com/Nyuhnyash/VSChatTranslator/releases/download/1.0.0/GoogleTranslateFreeApi.dll).
+- Download [dependency](https://github.com/Nyuhnyash/VSChatTranslator/releases/latest/download/GoogleTranslateFreeApi.dll).
 ```shell
 dotnet build
 ```
@@ -19,7 +19,8 @@ dotnet build -c Release
 | `.t `(`.translate`) `<message>`    | Translate your text into the target language and send it to the chat. |
 | `.ct` (`.chattranslator`)          |                                                                       |
 | `.ct toggle`                       | Switch incoming messages translator on and off.                       |
-| `.ct lang`                         | List supported languages.                                             |
+| `.ct lang`                         |                                                                       |
+| `.ct lang list`                    | List supported languages.                                             |
 | `.ct lang <lang type> [lang code]` | View or edit your language preferences.                               |
 
 #### Language types

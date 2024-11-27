@@ -16,6 +16,7 @@ namespace ChatTranslator
 
         public IEnumerable<string> SupportedLanguages => GoogleTranslateFreeApi.GoogleTranslator.LanguagesSupported
             .Select(l => l.ISO639)
+            .Select(l => l.ToLower())
             .OrderBy(l => l);
 
         public string Translate(string message, string from, string to)
@@ -28,8 +29,8 @@ namespace ChatTranslator
                     GoogleTranslateFreeApi.GoogleTranslator.GetLanguageByISO(to)
                 ).Result;
 
-                if (result.SourceLanguage.Equals(Language.Auto) 
-                    && result.LanguageDetections[0].Language.Equals(result.TargetLanguage)) 
+                if (result.SourceLanguage.Equals(Language.Auto)
+                    && result.LanguageDetections[0].Language.Equals(result.TargetLanguage))
                     return null;
 
                 return result.MergedTranslation;
